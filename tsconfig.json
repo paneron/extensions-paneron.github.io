@@ -1,11 +1,10 @@
-
 {
   "compileOnSave": false,
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "jsx": "preserve",
-    "allowJs": true,
+    "jsx": "react",
+    "allowJs": false,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
@@ -16,7 +15,7 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "skipLibCheck": true,
-    "noEmit": true,
+    "noEmit": false,
     "baseUrl": ".",
     "sourceRoot": ".",
     "paths": {
@@ -26,5 +25,5 @@
     },
     "lib": ["dom", "es2015", "es2016"]
   },
-  "exclude": ["artifacts/**/*", "dist/**/*", "public/**/*", "node_modules"]
+  "exclude": ["artifacts/**/*", "dist/**/*", "public/**/*", "node_modules", "static.config.js"]
 }

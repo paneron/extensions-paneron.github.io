@@ -7,7 +7,7 @@
     "build": "react-static build",
     "bundle": "react-static bundle",
     "export": "react-static export",
-    "compile": "tsc src/extensionDiscovery.ts --outDir compiled",
+    "compile": "rm -r compiled; tsc --outDir compiled",
     "serve": "serve dist -p 3000 -s"
   },
   "dependencies": {
