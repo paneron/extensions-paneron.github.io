@@ -1,0 +1,91 @@
+import axios from 'axios';
+import { Extension, NPMPackage, NPMPackageVersion, NPMSearchEntry, PaneronExtensionMeta, PaneronExtensionPackageVersion } from './types';
+
+
+export const NPM_EXTENSION_PREFIX = '@riboseinc/paneron-extension-'
+
+
+function isExtension(entry: NPMSearchEntry): boolean {
+  // Initially we only allow extensions hosted under @riboseinc scope
+  return (
+    entry.package.name.startsWith(NPM_EXTENSION_PREFIX) &&
+    entry.package.name !== '@riboseinc/paneron-extension-kit')
+}
+
+
+function getLatestVersion<T extends NPMPackageVersion>(pkg: NPMPackage<T>): T {
+  const latestVersion = pkg.versions[pkg['dist-tags']?.latest]
+
+  if (!latestVersion) {
+    throw new Error("Missing latest version")
+  }
+
+  return latestVersion
+}
+
+
+/* Takes NPM package structure that hopefully describes a Paneron extension,
+   if it does returns with narrowed type, otherwise throws a descriptive error. */
+function parseExtensionPkg(pkg: NPMPackage): NPMPackage<PaneronExtensionPackageVersion> {
+  const latestVersion = getLatestVersion(pkg) as Partial<PaneronExtensionPackageVersion>
+
+  if (latestVersion.paneronExtension === undefined) {
+    throw new Error("Extension meta is missing")
+  }
+
+  const extensionMeta = latestVersion.paneronExtension as Partial<PaneronExtensionMeta>
+
+  try {
+    new URL(extensionMeta.iconURL)
+  } catch (e) {
+    throw new Error("Extension meta: icon URL does not seem to be valid")
+  }
+
+  if (!extensionMeta.title || !extensionMeta.requiredHostAppVersion) {
+    throw new Error("Extension meta: missing title or required host app version")
+  }
+
+  return pkg as NPMPackage<PaneronExtensionPackageVersion>
+}
+
+
+async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
+  const packageResponse = await axios.get(`https://registry.npmjs.com/${npm.package.name}`)
+
+  if (packageResponse.data?.name !== npm.package.name) {
+    console.error("NPM package name does not match search entry name", npm.package.name)
+    return null
+  }
+
+  const pkg: NPMPackage = packageResponse.data
+
+  let extensionPkg: NPMPackage<PaneronExtensionPackageVersion>
+
+  try {
+    extensionPkg = parseExtensionPkg(pkg)
+  } catch (e) {
+    console.error("Unable to parse Paneron extension meta from NPM package", pkg.name, e)
+    return null
+  }
+
+  const latestVersion = getLatestVersion(extensionPkg)
+
+  const extension: Extension = {
+    ...latestVersion.paneronExtension,
+    author: latestVersion.author.name,
+    description: latestVersion.description,
+    npm: latestVersion,
+  }
+
+  return extension
+}
+
+
+async function discoverExtensions(): Promise<Extension[]> {
+  const packages = (await axios.get(`https://registry.npmjs.com/-/v1/search?text=${NPM_EXTENSION_PREFIX}`)).data.objects;
+  const extensions: Extension[] = await Promise.all(packages.filter(isExtension).map(loadExtension))
+  return extensions.filter(ext => ext !== null);
+}
+
+
+export default discoverExtensions

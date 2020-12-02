@@ -1,0 +1,78 @@
+export interface DirectoryData {
+  extensions: Extension[]
+}
+
+
+export interface Extension extends PaneronExtensionMeta {
+  author: string
+  description: string
+  npm: Pick<NPMPackageVersion, 'name' | 'version' | 'bugs' | 'dist'>
+}
+
+
+export interface PaneronExtensionMeta {
+  title: string
+  iconURL: string
+  featured: boolean
+  requiredHostAppVersion: string
+}
+
+
+/* Type of an object returned from NPM registry v1 search JSON */
+export interface NPMSearchEntry {
+  package: {
+    name: string
+    version: string
+    description: string
+    author: {
+      name: string
+      username: string
+    }
+  }
+}
+
+
+export interface NPMPackageVersion {
+  name: string
+  version: string
+  description: string
+  author: {
+    email: string
+    name: string
+  }
+  _npmUser: {
+    email: string
+    name: string
+  }
+  bugs: {
+    url: string
+  }
+  dist: {
+    integrity: string
+    "npm-signature": string
+    shasum: string
+    unpackedSize: number
+  }
+}
+
+
+export interface PaneronExtensionPackageVersion extends NPMPackageVersion {
+  paneronExtension: PaneronExtensionMeta
+}
+
+
+/* Type of an object returned from NPM registry individual item JSON.
+   Version JSON can contain custom fields in addition to generally used ones;
+   that can be specified by passing Version generic parameter. */
+export interface NPMPackage<Version extends NPMPackageVersion = NPMPackageVersion> {
+  _id: string
+  name: string
+  description: string
+  homepage: string
+  "dist-tags": {
+    latest: string
+  }
+  versions: {
+    [versionID: string]: Version
+  }
+}
