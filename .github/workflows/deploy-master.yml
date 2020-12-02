@@ -24,7 +24,7 @@ jobs:
           yarn install
       - name: Build site
         run: |
-          yarn build
+          yarn compile && yarn build
 
       #- name: Deploy to AWS
       #  env:
