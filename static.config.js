@@ -15,7 +15,7 @@ export default {
           extensions,
         }),
         children: extensions.map((extension) => ({
-          path: `/${extension.npm.name}`,
+          path: `/e/${extension.npm.name}`,
           template: 'src/containers/Extension',
           getData: () => ({
             extension,
