@@ -13,7 +13,11 @@ export default function () {
   const { extensions } = useRouteData<{ extensions: Extension[] }>()
   return (
     <React.Fragment>
-      <h2 css={css`font-weight: 200; font-size: 200%; color: white; padding: 0 1rem; text-align: center;`}>
+      <h2 css={css`
+          font-weight: 200; font-size: 200%; color: white;
+          padding: 0 1rem;
+          text-align: center;
+        `}>
         Extensions for&nbsp;managing structured&nbsp;data
       </h2>
       <div css={css`
