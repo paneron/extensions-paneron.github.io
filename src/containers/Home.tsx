@@ -23,11 +23,18 @@ export default function () {
       <div css={css`
           flex: 1;
           padding: 1rem;
+          align-self: stretch;
+
           @media screen and (min-width: 800px) {
             display: flex;
             flex-flow: row wrap;
             align-items: flex-start;
-            & > * { width: 30rem }
+            justify-content: center;
+
+            & > * {
+              width: 20rem;
+              margin: 0 0 .5rem .5rem;
+            }
           }
         `}>
         {extensions.map(e => <ExtensionCard extension={e} />)}
@@ -87,7 +94,12 @@ function ({ extension, className }) {
         </div>
       </header>
 
-      <main css={css`flex: 1; padding: 0 1rem;`}>
+      <main css={css`
+          flex: 1; padding: 0 1rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        `}>
         {extension.description}
       </main>
 
