@@ -6,7 +6,6 @@ import { useRouteData } from 'react-static'
 import { Extension } from 'src/types'
 import { Shaded, BORDER_RADIUS_REM, ExtensionTitle, colorScale } from '../GlobalStyle'
 import chroma from 'chroma-js'
-import { primaryColor } from '../GlobalStyle'
 
 
 export default function () {
@@ -73,8 +72,4 @@ const MetaRow = styled.section`
   }
 
   font-size: 85%;
-
-  _box-shadow: 0 -.05rem 0 ${primaryColor.css()}, 0 .05rem 0 ${primaryColor.css()};
-  _z-index: 2;
-  _position: relative;
 `
