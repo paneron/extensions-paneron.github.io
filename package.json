@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@emotion/core": "10.0.15",
+    "@emotion/styled": "^10.0.15",
     "@reach/router": "^1.2.1",
     "chroma-js": "^2.1.0",
     "react": "^16.9.0",
