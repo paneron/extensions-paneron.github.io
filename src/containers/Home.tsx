@@ -49,7 +49,10 @@ function ({ extension, className }) {
   return (
     <Shaded aria-role="article" className={className} css={css`
         background: white;
-        border-radius: ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem;
+
+        @media screen and (min-width: ${BIG_SCREEN_BREAKPOINT_PX}px) {
+          border-radius: ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem;
+        }
 
         display: flex;
         flex-flow: column nowrap;
