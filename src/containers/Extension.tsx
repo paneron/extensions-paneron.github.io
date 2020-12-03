@@ -39,14 +39,21 @@ export default function () {
           </span>
         </h2>
       </Shaded>
+
+      <MetaRow>
+        Compatible with Paneron v{extension.requiredHostAppVersion}
+      </MetaRow>
+
+      <MetaRow>
+        NPM package: <a href={`https://npmjs.com/package/${extension.npm.name}`}>{extension.npm.name}</a>
+      </MetaRow>
+
       {extension.npm.bugs?.url
-        ? <MetaRow css={css`background: ${chroma.scale(['white', colorScale(0.2)])(0.35).css()};`}>
+        ? <MetaRow>
             Bug tracker: <a href={extension.npm.bugs.url}>{extension.npm.bugs.url}</a>
           </MetaRow>
         : null}
-      <MetaRow css={css`background: ${chroma.scale(['white', colorScale(0.2)])(0.45).css()};`}>
-        Compatible with Paneron v{extension.requiredHostAppVersion}
-      </MetaRow>
+
       <section css={css`
           overflow: hidden;
           background: ${chroma.scale(['white', colorScale(0.2)])(0.15).css()};
@@ -62,14 +69,8 @@ export default function () {
 
 
 const MetaRow = styled.section`
-  overflow: hidden;
   padding: .5rem 1rem;
-
-  margin: .05rem .05rem;
-
-  & + & {
-    margin-top: 0;
-  }
-
+  margin: 1px .15rem;
+  background: rgba(255, 255, 255, 0.7);
   font-size: 85%;
 `
