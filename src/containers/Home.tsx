@@ -22,7 +22,6 @@ export default function () {
       </h2>
       <div css={css`
           flex: 1;
-          padding: 1rem;
           align-self: stretch;
 
           @media screen and (min-width: 800px) {
