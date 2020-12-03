@@ -4,7 +4,7 @@ import { jsx, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { useRouteData } from 'react-static'
 import { Extension } from 'src/types'
-import { Shaded, BORDER_RADIUS_REM, ExtensionTitle, colorScale } from '../GlobalStyle'
+import { Shaded, BORDER_RADIUS_REM, ExtensionTitle, colorScale, BIG_SCREEN_BREAKPOINT_PX } from '../GlobalStyle'
 import chroma from 'chroma-js'
 
 
@@ -15,7 +15,7 @@ export default function () {
         margin: 0;
         width: 100vw;
 
-        @media screen and (min-width: 800px) {
+        @media screen and (min-width: ${BIG_SCREEN_BREAKPOINT_PX}px) {
           margin: 1rem auto;
           width: 80vw;
           border-radius: ${BORDER_RADIUS_REM}rem;

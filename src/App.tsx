@@ -5,7 +5,7 @@ import { jsx, css } from '@emotion/core'
 import { Root, Routes } from 'react-static'
 import { Router, Link } from '@reach/router'
 import { Helmet } from 'react-helmet'
-import globalStyle, { BORDER_RADIUS_REM, Spinner } from './GlobalStyle'
+import globalStyle, { BORDER_RADIUS_REM, Spinner, BIG_SCREEN_BREAKPOINT_PX } from './GlobalStyle'
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
       <h1 css={css`
           margin: 0;
 
-          @media screen and (min-width: 800px) {
+          @media screen and (min-width: ${BIG_SCREEN_BREAKPOINT_PX}px) {
             margin: 0 auto;
             width: 80vw;
             border-radius: 0 0 ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem;

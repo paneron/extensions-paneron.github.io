@@ -5,7 +5,7 @@ import { useRouteData } from 'react-static'
 import React from 'react'
 import { Link } from '@reach/router'
 import { Extension } from 'src/types'
-import { ExtensionTitle, BORDER_RADIUS_REM, LOGO_SIDE_REM, Shaded } from '../GlobalStyle'
+import { ExtensionTitle, BORDER_RADIUS_REM, LOGO_SIDE_REM, Shaded, BIG_SCREEN_BREAKPOINT_PX } from '../GlobalStyle'
 
 
 
@@ -24,7 +24,7 @@ export default function () {
           flex: 1;
           align-self: stretch;
 
-          @media screen and (min-width: 800px) {
+          @media screen and (min-width: ${BIG_SCREEN_BREAKPOINT_PX}px) {
             display: flex;
             flex-flow: row wrap;
             align-items: flex-start;
