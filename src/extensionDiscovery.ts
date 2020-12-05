@@ -1,4 +1,5 @@
 import axios from 'axios';
+import parseJSON from 'date-fns/parseJSON';
 import { Extension, NPMPackage, NPMPackageVersion, NPMSearchEntry, PaneronExtensionMeta, PaneronExtensionPackageVersion } from './types';
 
 
@@ -74,6 +75,7 @@ async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
     ...latestVersion.paneronExtension,
     author: latestVersion.author.name,
     description: latestVersion.description,
+    latestUpdate: parseJSON(extensionPkg.time['modified']),
     npm: latestVersion,
   }
 

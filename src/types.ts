@@ -6,6 +6,7 @@ export interface DirectoryData {
 export interface Extension extends PaneronExtensionMeta {
   author: string
   description: string
+  latestUpdate: Date
   npm: Pick<NPMPackageVersion, 'name' | 'version' | 'bugs' | 'dist'>
 }
 
@@ -71,6 +72,9 @@ export interface NPMPackage<Version extends NPMPackageVersion = NPMPackageVersio
   homepage: string
   "dist-tags": {
     latest: string
+  }
+  time: {
+    [timestamp: string]: Date
   }
   versions: {
     [versionID: string]: Version
