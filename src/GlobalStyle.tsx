@@ -68,6 +68,7 @@ export default <Global styles={css`
 
     min-height: 100vh;
     background-image: linear-gradient(157deg, ${colorScale(0.15).css()}, ${colorScale(0.5).css()});
+
   }
 
   ${pageContainerSelector} {
