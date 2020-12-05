@@ -49,18 +49,22 @@ export default function () {
       </MetaRow>
 
       <MetaRow>
-        NPM package: <a href={`https://npmjs.com/package/${extension.npm.name}`}>{extension.npm.name}</a>
+        NPM package:
+        &emsp;
+        <a href={`https://npmjs.com/package/${extension.npm.name}`}>{extension.npm.name}</a>
       </MetaRow>
 
       <MetaRow title={latestUpdate.toLocaleDateString()}>
-        Updated:
+        Latest update:
         &emsp;
         {formatRelative(latestUpdate, new Date())}
       </MetaRow>
 
       {extension.npm.bugs?.url
         ? <MetaRow>
-            Bug tracker: <a href={extension.npm.bugs.url}>{extension.npm.bugs.url}</a>
+            Bug tracker:
+            &emsp;
+            <a href={extension.npm.bugs.url}>{extension.npm.bugs.url}</a>
           </MetaRow>
         : null}
 
