@@ -2,6 +2,8 @@
 
 import { jsx, css } from '@emotion/core'
 import { useRouteData } from 'react-static'
+import parseJSON from 'date-fns/parseJSON'
+import compareDesc from 'date-fns/compareDesc'
 import React from 'react'
 import { Link } from '@reach/router'
 import { Extension } from 'src/types'
@@ -11,6 +13,10 @@ import { ExtensionTitle, BORDER_RADIUS_REM, LOGO_SIDE_REM, Shaded, BIG_SCREEN_BR
 
 export default function () {
   const { extensions } = useRouteData<{ extensions: Extension[] }>()
+  const extensionsSorted = extensions.sort((ext1, ext2) => compareDesc(
+    parseJSON(ext1.latestUpdate),
+    parseJSON(ext2.latestUpdate)))
+
   return (
     <React.Fragment>
       <h2 css={css`
@@ -36,7 +42,7 @@ export default function () {
             }
           }
         `}>
-        {extensions.map(e => <ExtensionCard extension={e} />)}
+        {extensionsSorted.map(e => <ExtensionCard extension={e} />)}
       </div>
     </React.Fragment>
   )
