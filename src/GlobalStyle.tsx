@@ -61,6 +61,7 @@ export default <Global styles={css`
     font-size: 17px;
     font-weight: 300;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 
     margin: 0;
     padding: 0;
