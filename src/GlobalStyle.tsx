@@ -19,7 +19,7 @@ export const BORDER_RADIUS_REM = .75
 
 export const ExtensionTitle = styled.span`
   font-size: 140%;
-  letter-spacing: -.04rem;
+  letter-spacing: -.03rem;
   font-weight: 400;
 `
 
