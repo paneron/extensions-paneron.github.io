@@ -18,6 +18,7 @@ export default {
           path: `/e/${extension.npm.name}`,
           template: 'src/containers/Extension',
           getData: () => ({
+            itemType: 'extension',
             extension,
           }),
         })),
