@@ -71,15 +71,13 @@ async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
 
   const latestVersion = getLatestVersion(extensionPkg)
 
-  const extension: Extension = {
+  return {
     ...latestVersion.paneronExtension,
     author: latestVersion.author.name,
     description: latestVersion.description,
     latestUpdate: parseJSON(extensionPkg.time['modified']),
     npm: latestVersion,
   }
-
-  return extension
 }
 
 
