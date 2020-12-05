@@ -23,7 +23,7 @@ export default function () {
 
         overflow: hidden;
       `}>
-      <Shaded aria-role="banner" css={css`
+      <Shaded role="banner" css={css`
           display: flex; flex-flow: row nowrap; align-items: center;
           background: whiteSmoke;
           padding: 1rem;

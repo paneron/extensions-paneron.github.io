@@ -47,7 +47,7 @@ export default function () {
 const ExtensionCard: React.FC<{ extension: Extension, className?: string }> =
 function ({ extension, className }) {
   return (
-    <Shaded aria-role="article" className={className} css={css`
+    <Shaded role="article" className={className} css={css`
         background: white;
 
         @media screen and (min-width: ${BIG_SCREEN_BREAKPOINT_PX}px) {
