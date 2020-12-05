@@ -1,8 +1,3 @@
-export interface DirectoryData {
-  extensions: Extension[]
-}
-
-
 export interface Extension extends PaneronExtensionMeta {
   author: string
   description: string
