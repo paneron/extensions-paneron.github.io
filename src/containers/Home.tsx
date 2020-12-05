@@ -10,7 +10,6 @@ import { Extension } from 'src/types'
 import { ExtensionTitle, BORDER_RADIUS_REM, LOGO_SIDE_REM, Shaded, BIG_SCREEN_BREAKPOINT_PX } from '../GlobalStyle'
 
 
-
 export default function () {
   const { extensions } = useRouteData<{ extensions: Extension[] }>()
   const extensionsSorted = extensions.sort((ext1, ext2) => compareDesc(
