@@ -2,6 +2,8 @@
 
 import { jsx, css } from '@emotion/core'
 import styled from '@emotion/styled'
+import parseJSON from 'date-fns/parseJSON'
+import formatRelative from 'date-fns/formatRelative'
 import { useRouteData } from 'react-static'
 import { Extension } from 'src/types'
 import { Shaded, BORDER_RADIUS_REM, ExtensionTitle, colorScale, BIG_SCREEN_BREAKPOINT_PX } from '../GlobalStyle'
@@ -10,6 +12,8 @@ import chroma from 'chroma-js'
 
 export default function () {
   const { extension } = useRouteData<{ extension: Extension }>()
+  const latestUpdate = parseJSON(extension.latestUpdate)
+
   return (
     <main css={css`
         margin: 0;
@@ -46,6 +50,12 @@ export default function () {
 
       <MetaRow>
         NPM package: <a href={`https://npmjs.com/package/${extension.npm.name}`}>{extension.npm.name}</a>
+      </MetaRow>
+
+      <MetaRow title={latestUpdate.toLocaleDateString()}>
+        Updated:
+        &emsp;
+        {formatRelative(latestUpdate, new Date())}
       </MetaRow>
 
       {extension.npm.bugs?.url
