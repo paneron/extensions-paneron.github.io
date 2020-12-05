@@ -22,7 +22,7 @@ export default function () {
         @media screen and (min-width: ${BIG_SCREEN_BREAKPOINT_PX}px) {
           margin: 1rem auto;
           width: 80vw;
-          border-radius: ${BORDER_RADIUS_REM}rem;
+          border-radius: ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem 0 0;
         }
 
         overflow: hidden;
@@ -48,23 +48,17 @@ export default function () {
         Compatible with Paneron v{extension.requiredHostAppVersion}
       </MetaRow>
 
-      <MetaRow>
-        NPM package:
-        &emsp;
-        <a href={`https://npmjs.com/package/${extension.npm.name}`}>{extension.npm.name}</a>
-      </MetaRow>
-
       <MetaRow title={latestUpdate.toLocaleDateString()}>
         Latest update:
         &emsp;
         {formatRelative(latestUpdate, new Date())}
       </MetaRow>
 
-      {extension.npm.bugs?.url
+      {extension.websiteURL
         ? <MetaRow>
-            Bug tracker:
+            Website:
             &emsp;
-            <a href={extension.npm.bugs.url}>{extension.npm.bugs.url}</a>
+            <a href={extension.websiteURL}>{extension.websiteURL}</a>
           </MetaRow>
         : null}
 
@@ -77,6 +71,20 @@ export default function () {
           {extension.description}
         </p>
       </section>
+
+      <MetaRow>
+        NPM package:
+        &emsp;
+        <a href={`https://npmjs.com/package/${extension.npm.name}`}>{extension.npm.name}</a>
+      </MetaRow>
+
+      {extension.npm.bugs?.url
+        ? <MetaRow>
+            Bug tracker:
+            &emsp;
+            <a href={extension.npm.bugs.url}>{extension.npm.bugs.url}</a>
+          </MetaRow>
+        : null}
     </main>
   )
 }
