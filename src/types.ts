@@ -2,6 +2,7 @@ export interface Extension extends PaneronExtensionMeta {
   author: string
   description: string
   latestUpdate: Date
+  websiteURL?: string
   npm: Pick<NPMPackageVersion, 'name' | 'version' | 'bugs' | 'dist'>
 }
 
@@ -65,7 +66,7 @@ export interface NPMPackage<Version extends NPMPackageVersion = NPMPackageVersio
   _id: string
   name: string
   description: string
-  homepage: string
+  homepage?: string
   "dist-tags": {
     latest: string
   }

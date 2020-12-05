@@ -76,6 +76,7 @@ async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
     author: latestVersion.author.name,
     description: latestVersion.description,
     latestUpdate: parseJSON(extensionPkg.time['modified']),
+    websiteURL: extensionPkg.homepage,
     npm: latestVersion,
   }
 }
