@@ -6,6 +6,7 @@ export interface Extension extends PaneronExtensionMeta {
 }
 
 
+/* Lives under a custom subkey of package.json */
 export interface PaneronExtensionMeta {
   title: string
   iconURL: string
