@@ -56,7 +56,7 @@ function ({ extension, className }) {
         background: white;
 
         @media screen and (min-width: ${BIG_SCREEN_BREAKPOINT_PX}px) {
-          border-radius: ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem ${BORDER_RADIUS_REM}rem;
+          border-radius: ${BORDER_RADIUS_REM}rem;
         }
 
         display: flex;
