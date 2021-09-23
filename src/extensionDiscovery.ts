@@ -25,8 +25,10 @@ function getLatestVersion<T extends NPMPackageVersion>(pkg: NPMPackage<T>): T {
 }
 
 
-/* Takes NPM package structure that hopefully describes a Paneron extension,
-   if it does returns with narrowed type, otherwise throws a descriptive error. */
+/**
+ * Takes NPM package structure that hopefully describes a Paneron extension,
+ * if it does returns with narrowed type, otherwise throws a descriptive error.
+ */
 function parseExtensionPkg(pkg: NPMPackage): NPMPackage<PaneronExtensionPackageVersion> {
   const latestVersion = getLatestVersion(pkg) as Partial<PaneronExtensionPackageVersion>
 

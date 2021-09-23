@@ -7,7 +7,7 @@ export interface Extension extends PaneronExtensionMeta {
 }
 
 
-/* Lives under a custom subkey of package.json */
+/** This metadata lives under a custom Paneron-specific subkey of package.json */
 export interface PaneronExtensionMeta {
   title: string
   iconURL: string
@@ -16,7 +16,7 @@ export interface PaneronExtensionMeta {
 }
 
 
-/* Type of an object returned from NPM registry v1 search JSON */
+/** Type of an object returned from NPM registry v1 search JSON */
 export interface NPMSearchEntry {
   package: {
     name: string
@@ -59,9 +59,11 @@ export interface PaneronExtensionPackageVersion extends NPMPackageVersion {
 }
 
 
-/* Type of an object returned from NPM registry individual item JSON.
-   Version JSON can contain custom fields in addition to generally used ones;
-   that can be specified by passing Version generic parameter. */
+/**
+ * Type of an object returned from NPM registry individual item JSON.
+ * Version JSON can contain custom fields in addition to generally used ones;
+ * that can be specified by passing Version generic type parameter.
+ */
 export interface NPMPackage<Version extends NPMPackageVersion = NPMPackageVersion> {
   _id: string
   name: string
