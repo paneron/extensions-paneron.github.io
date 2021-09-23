@@ -1,5 +1,5 @@
 import path from 'path'
-import discoverExtensions from './compiled/extensionDiscovery'
+import discoverExtensions from './compiled/extensionDiscovery' // TODO: Is /compiled/ reference on purpose? Will it break on direct .ts reference? Fix or comment
 
 
 export default {
