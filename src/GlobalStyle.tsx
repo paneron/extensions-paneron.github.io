@@ -41,12 +41,6 @@ export const Shaded = styled.div`
     right: 10px;
     border-radius: 100px / 10px;
   }
-
-  &:after {
-    right: 10px;
-    left: auto;
-    transform: skew(8deg) rotate(3deg);
-  }
 `
 
 
