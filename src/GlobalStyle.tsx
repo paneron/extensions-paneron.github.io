@@ -17,7 +17,7 @@ export const LOGO_SIDE_REM = 8.5
 export const BORDER_RADIUS_REM = .75
 
 
-export const ExtensionTitle = styled.span`
+export const ItemTitle = styled.span`
   font-size: 140%;
   letter-spacing: -.03rem;
   font-weight: 400;

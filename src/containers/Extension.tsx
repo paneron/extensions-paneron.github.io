@@ -6,7 +6,7 @@ import parseJSON from 'date-fns/parseJSON'
 import formatRelative from 'date-fns/formatRelative'
 import { useRouteData } from 'react-static'
 import { Extension } from 'src/types'
-import { Shaded, BORDER_RADIUS_REM, ExtensionTitle, colorScale, BIG_SCREEN_BREAKPOINT_PX } from '../GlobalStyle'
+import { Shaded, BORDER_RADIUS_REM, ItemTitle, colorScale, BIG_SCREEN_BREAKPOINT_PX } from '../GlobalStyle'
 import chroma from 'chroma-js'
 
 
@@ -40,7 +40,7 @@ export default function () {
           src={extension.iconURL}
           css={css`height: 6rem; width: 6rem; display: block; margin-right: .5rem;`} />
         <h2 css={css`font-size: 100%; font-weight: 400; margin-right: 1rem; display: inline;`}>
-          <ExtensionTitle>{extension.title}</ExtensionTitle>
+          <ItemTitle>{extension.title}</ItemTitle>
           &emsp;
           <span css={css`font-size: 80%; font-weight: 200; white-space: nowrap;`}>
             {extension.npm.version}&ensp;•&ensp;by {extension.author}

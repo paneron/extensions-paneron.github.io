@@ -7,7 +7,7 @@ import compareDesc from 'date-fns/compareDesc'
 import React from 'react'
 import { Link } from '@reach/router'
 import { Extension } from 'src/types'
-import { ExtensionTitle, BORDER_RADIUS_REM, LOGO_SIDE_REM, Shaded, BIG_SCREEN_BREAKPOINT_PX } from '../GlobalStyle'
+import { ItemTitle, BORDER_RADIUS_REM, LOGO_SIDE_REM, Shaded, BIG_SCREEN_BREAKPOINT_PX } from '../GlobalStyle'
 
 
 export default function () {
@@ -88,14 +88,14 @@ function ({ extension, className }) {
           padding: 0 1rem;
           margin: 1rem 0;
         `}>
-        <ExtensionTitle css={css`
+        <ItemTitle css={css`
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             display: block;
           `}>
           {extension.title}
-        </ExtensionTitle>
+        </ItemTitle>
         <div css={css`font-size: 75%; margin-top: .5rem;`}>
           {extension.npm.version}&ensp;•&ensp;by {extension.author}
         </div>
