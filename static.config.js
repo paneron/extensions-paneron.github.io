@@ -1,12 +1,12 @@
 import path from 'path'
 import discoverExtensions from './compiled/extensionDiscovery' // TODO: Is /compiled/ reference on purpose? Will it break on direct .ts reference? Fix or comment
+import makeStaticConfig from './compiled/common/makeStaticConfig'
 
 
-export default {
+export default makeStaticConfig({
   entry: path.join(__dirname, 'src', 'index.tsx'),
-  getRoutes: async () => {
+  routeBuilder: async () => {
     const extensions = await discoverExtensions();
-
     return [
       {
         path: '/',
@@ -25,10 +25,4 @@ export default {
       },
     ]
   },
-  plugins: [
-    'react-static-plugin-typescript',
-    'react-static-plugin-emotion',
-    require.resolve('react-static-plugin-reach-router'),
-    require.resolve('react-static-plugin-sitemap'),
-  ],
-}
+})
