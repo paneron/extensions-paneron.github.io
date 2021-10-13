@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import React from 'react'
-import { jsx, css } from '@emotion/core'
+import { jsx, css } from '@emotion/react'
 import { Root, Routes } from 'react-static'
 import { Router, Link } from '@reach/router'
 import { Helmet } from 'react-helmet'

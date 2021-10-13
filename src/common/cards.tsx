@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import type React from 'react';
-import { jsx, css } from '@emotion/core'
+import { jsx, css } from '@emotion/react'
 import styled from '@emotion/styled';
 import { Link } from '@reach/router';
 

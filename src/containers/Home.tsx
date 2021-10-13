@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx } from '@emotion/core'
+import { jsx } from '@emotion/react'
 import { useRouteData } from 'react-static'
 import parseJSON from 'date-fns/parseJSON'
 import compareDesc from 'date-fns/compareDesc'

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { Global, jsx, css } from '@emotion/core'
+import { Global, jsx, css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { colorScale, pageContainerSelector, primaryColor } from './constants'
 

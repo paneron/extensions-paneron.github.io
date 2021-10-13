@@ -11,17 +11,17 @@
     "serve": "serve dist -p 3000 -s"
   },
   "dependencies": {
-    "@emotion/core": "10.0.15",
-    "@emotion/styled": "^10.0.15",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
     "@reach/router": "^1.2.1",
     "chroma-js": "^2.1.0",
     "date-fns": "^2.16.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-static": "^7.2.0",
-    "react-static-plugin-emotion": "^7.2.2",
-    "react-static-plugin-reach-router": "^7.2.0",
-    "react-static-plugin-sitemap": "^7.2.0"
+    "react-static": "^7.6.0",
+    "react-static-plugin-emotion": "^7.6.0",
+    "react-static-plugin-reach-router": "^7.6.0",
+    "react-static-plugin-sitemap": "^7.6.0"
   },
   "resolutions": {
     "**/react-universal-component": "4.0.1"
@@ -36,11 +36,10 @@
     "@types/react-hot-loader": "^4.1.0",
     "@types/webpack-env": "^1.14.0",
     "axios": "^0.21.0",
-    "emotion": "^10.0.14",
     "react-hot-loader": "^4.12.11",
     "react-static-plugin-file-watch-reload": "^1.0.4",
-    "react-static-plugin-typescript": "^7.4.2",
+    "react-static-plugin-typescript": "^7.6.0",
     "serve": "^11.1.0",
-    "typescript": "^3.9.6"
+    "typescript": "^4.1.3"
   }
 }

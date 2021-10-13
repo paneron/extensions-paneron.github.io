@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx, css } from '@emotion/core'
+import { jsx, css } from '@emotion/react'
 import styled from '@emotion/styled'
 import parseJSON from 'date-fns/parseJSON'
 import formatRelative from 'date-fns/formatRelative'
