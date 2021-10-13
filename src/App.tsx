@@ -5,7 +5,8 @@ import { jsx, css } from '@emotion/core'
 import { Root, Routes } from 'react-static'
 import { Router, Link } from '@reach/router'
 import { Helmet } from 'react-helmet'
-import globalStyle, { BORDER_RADIUS_REM, Spinner, BIG_SCREEN_BREAKPOINT_PX } from './GlobalStyle'
+import globalStyle, { Spinner } from './common/GlobalStyle'
+import { BORDER_RADIUS_REM, BIG_SCREEN_BREAKPOINT_PX } from './common/constants'
 
 
 function App() {

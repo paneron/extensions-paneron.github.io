@@ -2,46 +2,7 @@
 
 import { Global, jsx, css } from '@emotion/core'
 import styled from '@emotion/styled'
-import chroma from 'chroma-js'
-
-
-export const pageContainerSelector = 'body > #root > div:first-of-type'
-
-export const primaryColor = chroma('#495563')
-export const colorScale = chroma.scale([primaryColor, '#afafaf']).mode('lab').domain([0, 1])
-
-export const BIG_SCREEN_BREAKPOINT_PX = 800;
-
-
-export const LOGO_SIDE_REM = 8.5
-export const BORDER_RADIUS_REM = .75
-
-
-export const ItemTitle = styled.span`
-  font-size: 140%;
-  letter-spacing: -.03rem;
-  font-weight: 400;
-`
-
-
-export const Shaded = styled.div`
-  position: relative;
-  box-shadow:
-    0 1px 4px rgba(0, 0, 0, 0.3),
-    0 0 40px rgba(0, 0, 0, 0.1) inset;
-
-  &:before, &:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    box-shadow: 0 0 12px rgba(0,0,0,0.8);
-    top: 50%;
-    bottom: 0;
-    left: 10px;
-    right: 10px;
-    border-radius: 100px / 10px;
-  }
-`
+import { colorScale, pageContainerSelector, primaryColor } from './constants'
 
 
 export default <Global styles={css`
