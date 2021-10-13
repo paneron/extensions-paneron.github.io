@@ -45,7 +45,8 @@ export const CardHeader = styled.header`
   margin: 1rem 0;
 `;
 
-export const CardBody: React.FC<{ allowWrap?: true; }> = function ({ allowWrap, children }) {
+export const CardBody: React.FC<{ allowWrap?: true; }> =
+function ({ allowWrap, children }) {
   return <main css={css`
     flex: 1;
     padding: 0 1rem;
@@ -75,16 +76,19 @@ export const CardActionLink = styled(Link)`
   text-transform: uppercase;
 `;
 
-export const CardBackgroundIcon: React.VoidFunctionComponent<{ imgURL: string; wrapperClassName?: string; className?: string; }> = function ({ imgURL, wrapperClassName, className }) {
+export const CardBackgroundIcon: React.VoidFunctionComponent<{ imgURL: string; wrapperClassName?: string; className?: string; }> =
+function ({ imgURL, wrapperClassName, className }) {
   return (
-    <div className={wrapperClassName} css={css`
-        height: ${CARD_ICON_SIDE_REM}rem; width: ${CARD_ICON_SIDE_REM}rem;
-        border-radius: 0 ${BORDER_RADIUS_REM}rem 0 0;
-        position: absolute;
-        overflow: hidden;
-        top: 0;
-        right: 0;
-      `}>
+    <div
+        className={wrapperClassName}
+        css={css`
+          height: ${CARD_ICON_SIDE_REM}rem; width: ${CARD_ICON_SIDE_REM}rem;
+          border-radius: 0 ${BORDER_RADIUS_REM}rem 0 0;
+          position: absolute;
+          overflow: hidden;
+          top: 0;
+          right: 0;
+        `}>
       <img
         src={imgURL}
         className={className}
@@ -95,7 +99,8 @@ export const CardBackgroundIcon: React.VoidFunctionComponent<{ imgURL: string; w
           top: -2.5rem;
           right: -2.5rem;
           opacity: .4;
-        `} />
+        `}
+      />
     </div>
   );
 };
