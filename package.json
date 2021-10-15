@@ -19,6 +19,7 @@
     "date-fns": "^2.16.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-helmet": "^6.1.0",
     "react-static": "^7.5.3",
     "react-static-plugin-emotion": "^7.6.0",
     "react-static-plugin-reach-router": "^7.6.0",
