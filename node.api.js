@@ -1,6 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 
+/** Serializes given `data` and writes it under specified `distPath`/`fileName`. */
 function outputJSON(distPath, fileName, data) {
   console.debug("Writing JSON asset", distPath, fileName)
   fs.writeFileSync(
@@ -16,6 +17,7 @@ function gatherExtensionInfo(extension) {
 export default (opts) => {
   return {
     afterExport: (state) => {
+      // Writes extensions.json in site dist root
       outputJSON(
         state.config.paths.DIST,
         'extensions.json',
