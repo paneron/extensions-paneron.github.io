@@ -1,6 +1,8 @@
 import makeStaticConfig from '@riboseinc/paneron-website-common/scaffolding/makeStaticConfig'
 
-// TODO: Is /compiled/ reference on purpose? Will it break on direct .ts reference? Fix or comment
+// NOTE: If we don’t refer to compiled JS here, we’ll get
+// Trace: Error: Cannot find module './discoverExtensions'.
+// This can probably be resolved more elegantly, but there we go for now.
 import discoverExtensions from './compiled/discoverExtensions'
 
 
