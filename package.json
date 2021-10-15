@@ -10,6 +10,10 @@
     "compile": "rm -r compiled; tsc --outDir compiled",
     "serve": "serve dist -p 3000 -s"
   },
+  "author": {
+    "name": "Ribose Inc.",
+    "email": "open@ribose.com"
+  },
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
