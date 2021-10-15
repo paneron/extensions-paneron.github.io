@@ -11,5 +11,6 @@ export default makeApp({
   }, {
     text: "Extensions",
     target: "/",
+    selected: true,
   }],
 });
