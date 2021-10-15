@@ -1,5 +1,5 @@
 import App from './App'
-import renderApp from './common/renderApp'
+import renderApp from '@riboseinc/paneron-website-common/scaffolding/renderApp'
 
 renderApp(App, './App')
 

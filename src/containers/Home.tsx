@@ -5,9 +5,9 @@ import { useRouteData } from 'react-static'
 import parseJSON from 'date-fns/parseJSON'
 import compareDesc from 'date-fns/compareDesc'
 import React from 'react'
+import { PageTitle } from '@riboseinc/paneron-website-common/elements/misc'
+import { CardStack } from '@riboseinc/paneron-website-common/elements/cards'
 import { Extension } from '../types'
-import { PageTitle } from '../common/misc'
-import { CardStack } from '../common/cards'
 import ExtensionCard from '../common/ExtensionCard'
 
 

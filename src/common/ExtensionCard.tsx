@@ -3,7 +3,7 @@
 import { jsx, css } from '@emotion/react';
 import React from 'react';
 import { Extension } from '../types';
-import { ItemTitle } from './misc';
+import { ItemTitle } from '@riboseinc/paneron-website-common/elements/misc';
 import {
   Card,
   CardActionLink,
@@ -11,7 +11,7 @@ import {
   CardBackgroundIcon,
   CardBody,
   CardHeader
-} from './cards';
+} from '@riboseinc/paneron-website-common/elements/cards';
 
 
 const ExtensionCard: React.FC<{ extension: Extension; className?: string; }> =

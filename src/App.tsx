@@ -1,4 +1,4 @@
-import makeApp from './common/makeApp'
+import makeApp from '@riboseinc/paneron-website-common/scaffolding/makeApp'
 
 
 export default makeApp({
