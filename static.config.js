@@ -1,6 +1,6 @@
 import path from 'path'
 import discoverExtensions from './compiled/extensionDiscovery' // TODO: Is /compiled/ reference on purpose? Will it break on direct .ts reference? Fix or comment
-import makeStaticConfig from './compiled/common/makeStaticConfig'
+import makeStaticConfig from '@riboseinc/paneron-website-common/scaffolding/makeStaticConfig'
 
 
 export default makeStaticConfig({
