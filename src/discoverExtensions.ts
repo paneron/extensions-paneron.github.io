@@ -84,6 +84,7 @@ async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
 }
 
 
+/** Builds a list of Paneron extension metadata objects from NPM registry. */
 async function discoverExtensions(): Promise<Extension[]> {
   const packages = (await axios.get(`https://registry.npmjs.com/-/v1/search?text=${NPM_EXTENSION_PREFIX}`)).data.objects;
   const extensions: Extension[] = await Promise.all(packages.filter(isExtension).map(loadExtension))
