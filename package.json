@@ -8,7 +8,8 @@
     "bundle": "react-static bundle",
     "export": "react-static export",
     "compile": "rm -r compiled; tsc --outDir compiled",
-    "serve": "serve dist -p 3000 -s"
+    "serve": "serve dist -p 3000 -s",
+    "clean": "rm -r tmp dist compiled artifacts"
   },
   "author": {
     "name": "Ribose Inc.",
