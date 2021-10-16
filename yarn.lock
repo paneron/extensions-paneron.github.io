@@ -1176,10 +1176,10 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
-"@riboseinc/paneron-website-common@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@riboseinc/paneron-website-common/-/paneron-website-common-0.1.2.tgz#1b36b5d9299fa1495a686439de305a8d62d1f7fd"
-  integrity sha512-k/XS3nZRWwxX8eiEuP7rp7lePVKjzwB38wSq/AwjUAcFKSEnF2dDEVkIxtLua40mpphjJSucs5f/ax9GTBhScQ==
+"@riboseinc/paneron-website-common@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@riboseinc/paneron-website-common/-/paneron-website-common-0.1.4.tgz#4f4d37e327bd4bdce5d80e6e18a47fbdc03633d0"
+  integrity sha512-9VsdwHHJxhqQNQqk5bCVA4IwymgSJg2HECsWu5wkgXhJbDnt4n6OCwhVkq40OFrd0B0p0/F46jscHnJAWmc3Rw==
 
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
