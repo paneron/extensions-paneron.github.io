@@ -19,7 +19,7 @@
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@reach/router": "^1.2.1",
-    "@riboseinc/paneron-website-common": "^0.1.4",
+    "@riboseinc/paneron-website-common": "^0.1.5",
     "callsite": "^1.0.0",
     "chroma-js": "^2.1.0",
     "date-fns": "^2.16.1",
