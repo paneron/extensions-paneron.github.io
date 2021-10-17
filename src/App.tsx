@@ -6,7 +6,7 @@ export default makeApp({
   topBarIsHeader: true,
   topLinks: [{
     text: "Paneron",
-    target: "https://paneron.org/",
+    target: "https://www.paneron.org/",
     external: true,
   }, {
     text: "Extensions",
