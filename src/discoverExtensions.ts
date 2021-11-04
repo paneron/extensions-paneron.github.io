@@ -3,7 +3,7 @@ import parseJSON from 'date-fns/parseJSON';
 import { Extension, NPMPackage, NPMPackageVersion, NPMSearchEntry, PaneronExtensionMeta, PaneronExtensionPackageVersion } from './types';
 
 
-export const NPM_EXTENSION_PREFIX = '@riboseinc/paneron-extension-'
+const NPM_EXTENSION_PREFIX = '@riboseinc/paneron-extension-'
 
 
 function isExtension(entry: NPMSearchEntry): boolean {
