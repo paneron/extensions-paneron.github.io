@@ -3,6 +3,17 @@ import parseJSON from 'date-fns/parseJSON';
 import { Extension, NPMPackage, NPMPackageVersion, NPMSearchEntry, PaneronExtensionMeta, PaneronExtensionPackageVersion } from './types';
 
 
+/** Builds a list of Paneron extension metadata objects from NPM registry. */
+async function discoverExtensions(): Promise<Extension[]> {
+  const packages = [
+    ...(await axios.get(`https://registry.npmjs.com/-/v1/search?text=@riboseinc/paneron-extension-`)).data.objects,
+    ...(await axios.get(`https://registry.npmjs.com/-/v1/search?text=@paneron/extension-`)).data.objects,
+  ];
+  const extensions: Extension[] = await Promise.all(packages.filter(isExtension).map(loadExtension))
+  return extensions.filter(ext => ext !== null);
+}
+
+
 function validateNPMExtensionName(name: string): boolean {
   // Initially we only allow extensions hosted under first-party scopes
   return (
@@ -87,14 +98,6 @@ async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
     websiteURL: extensionPkg.homepage,
     npm: latestVersion,
   }
-}
-
-
-/** Builds a list of Paneron extension metadata objects from NPM registry. */
-async function discoverExtensions(): Promise<Extension[]> {
-  const packages = (await axios.get(`https://registry.npmjs.com/-/v1/search?text=${NPM_EXTENSION_PREFIX}`)).data.objects;
-  const extensions: Extension[] = await Promise.all(packages.filter(isExtension).map(loadExtension))
-  return extensions.filter(ext => ext !== null);
 }
 
 
