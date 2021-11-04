@@ -3,14 +3,20 @@ import parseJSON from 'date-fns/parseJSON';
 import { Extension, NPMPackage, NPMPackageVersion, NPMSearchEntry, PaneronExtensionMeta, PaneronExtensionPackageVersion } from './types';
 
 
-const NPM_EXTENSION_PREFIX = '@riboseinc/paneron-extension-'
+function validateNPMExtensionName(name: string): boolean {
+  // Initially we only allow extensions hosted under first-party scopes
+  return (
+    name.startsWith('@riboseinc/paneron-extension-') ||
+    name.startsWith('@paneron/extension-')
+  ) && (
+    name !== '@riboseinc/paneron-extension-kit' &&
+    name !== '@paneron/extension-kit'
+  );
+}
 
 
 function isExtension(entry: NPMSearchEntry): boolean {
-  // Initially we only allow extensions hosted under @riboseinc scope
-  return (
-    entry.package.name.startsWith(NPM_EXTENSION_PREFIX) &&
-    entry.package.name !== '@riboseinc/paneron-extension-kit')
+  return validateNPMExtensionName(entry.package.name);
 }
 
 
