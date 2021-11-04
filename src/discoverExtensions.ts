@@ -9,7 +9,7 @@ async function discoverExtensions(): Promise<Extension[]> {
     ...(await axios.get(`https://registry.npmjs.com/-/v1/search?text=scope:riboseinc%20paneron-extension`)).data.objects,
     ...(await axios.get(`https://registry.npmjs.com/-/v1/search?text=scope:paneron%20extension`)).data.objects,
   ];
-  const extensions: Extension[] = await Promise.all(packages.filter(isExtension).map(loadExtension))
+  const extensions: Extension[] = await Promise.all(packages.filter(isExtension).map(loadExtension));
   return extensions.filter(ext => ext !== null);
 }
 
