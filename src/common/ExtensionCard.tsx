@@ -33,9 +33,10 @@ function ({ extension, className }) {
         </div>
       </CardHeader>
 
-      <CardBody>
+      {/* <CardBody>
         {extension.description}
-      </CardBody>
+      </CardBody> */}
+      <CardBody />
 
       <CardActions>
         <CardActionLink
