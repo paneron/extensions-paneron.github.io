@@ -90,7 +90,9 @@ async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
 
   const latestVersion = getLatestVersion(extensionPkg)
 
-  return {
+  console.debug("Downloading extension tarball to build", latestVersion.dist.tarball);
+
+  const ext: Extension = {
     ...latestVersion.paneronExtension,
     author: latestVersion.author.name,
     description: latestVersion.description,
@@ -98,6 +100,22 @@ async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
     websiteURL: extensionPkg.homepage,
     npm: latestVersion,
   }
+
+  try {
+    ext.tarball = (await axios.get(
+      latestVersion.dist.tarball,
+      {
+        responseType: 'arraybuffer',
+        headers: {
+          'Content-Type': 'application/gzip',
+        },
+      },
+    )).data;
+  } catch (e) {
+    console.error("Failed to download extension code tarball", e);
+  }
+
+  return ext
 }
 
 

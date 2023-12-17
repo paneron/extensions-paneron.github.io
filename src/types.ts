@@ -4,6 +4,7 @@ export interface Extension extends PaneronExtensionMeta {
   latestUpdate: Date
   websiteURL?: string
   npm: Pick<NPMPackageVersion, 'name' | 'version' | 'bugs' | 'dist'>
+  tarball?: ArrayBuffer
 }
 
 
