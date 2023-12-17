@@ -112,7 +112,7 @@ async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
       },
     )).data;
   } catch (e) {
-    console.error("Failed to download extension code tarball", e);
+    console.error("Failed to download extension code tarball", extensionPkg.name, e);
   }
 
   return ext
