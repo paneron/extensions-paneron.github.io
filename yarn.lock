@@ -1272,11 +1272,6 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@types/callsite@^1.0.34":
-  version "1.0.34"
-  resolved "https://registry.yarnpkg.com/@types/callsite/-/callsite-1.0.34.tgz#e2a6f6f7bf0f8a1ed5d9b11a3cd928cdd924bfb4"
-  integrity sha512-eglitkkbqiQiijtKsUvOcQm+E6qLMPcggjDJXeqNBnLxdzffRGop2+2QDN/8pHh396/jN5cmIwweNKUqKJ50mQ==
-
 "@types/chroma-js@^2.4.3":
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/@types/chroma-js/-/chroma-js-2.4.3.tgz#2f10bd16483a87d8ead68764fc439550e9c4cbb6"
@@ -1372,11 +1367,6 @@
   version "0.16.8"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.8.tgz#ce5ace04cfeabe7ef87c0091e50752e36707deff"
   integrity sha512-WZLiwShhwLRmeV6zH+GkbOFT6Z6VklCItrDioxUnv+u4Ll+8vKeFySoFyK/0ctcRpOmwAicELfmys1sDc/Rw+A==
-
-"@types/webpack-env@^1.18.4":
-  version "1.18.4"
-  resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.18.4.tgz#62879b0a9c653f9b1172d403b882f2045ecce032"
-  integrity sha512-I6e+9+HtWADAWeeJWDFQtdk4EVSAbj6Rtz4q8fJ7mSr1M0jzlFcs8/HZ+Xb5SHzVm1dxH7aUiI+A8kA8Gcrm0A==
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
