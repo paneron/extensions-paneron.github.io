@@ -7,7 +7,7 @@ import compareDesc from 'date-fns/compareDesc'
 import React from 'react'
 import { PageTitle } from '@riboseinc/paneron-website-common/elements/misc'
 import { CardStack } from '@riboseinc/paneron-website-common/elements/cards'
-import { Extension } from '../types'
+import type { Extension } from '../types'
 import ExtensionCard from '../common/ExtensionCard'
 
 

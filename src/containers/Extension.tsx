@@ -8,7 +8,7 @@ import chroma from 'chroma-js'
 import { useRouteData } from 'react-static'
 import { Shaded, ItemTitle } from '@riboseinc/paneron-website-common/elements/misc'
 import { BORDER_RADIUS_REM, colorScale, BIG_SCREEN_BREAKPOINT_PX } from '@riboseinc/paneron-website-common/ui-constants'
-import { Extension } from '../types'
+import type { Extension } from '../types'
 
 
 const highlitSectionBackground = chroma.scale(['white', colorScale(0.2)])(0.15).css();

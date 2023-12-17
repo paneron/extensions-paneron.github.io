@@ -1,6 +1,6 @@
 import axios from 'axios';
 import parseJSON from 'date-fns/parseJSON';
-import { Extension, NPMPackage, NPMPackageVersion, NPMSearchEntry, PaneronExtensionMeta, PaneronExtensionPackageVersion } from './types';
+import type { Extension, NPMPackage, NPMPackageVersion, NPMSearchEntry, PaneronExtensionMeta, PaneronExtensionPackageVersion } from './types';
 
 
 /** Builds a list of Paneron extension metadata objects from NPM registry. */
