@@ -90,7 +90,7 @@ async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
 
   const latestVersion = getLatestVersion(extensionPkg)
 
-  console.debug("Downloading extension tarball to build", latestVersion.dist.tarball);
+  //console.debug("Downloading extension tarball to build", latestVersion.dist.tarball);
 
   const ext: Extension = {
     ...latestVersion.paneronExtension,
