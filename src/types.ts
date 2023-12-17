@@ -46,6 +46,7 @@ export interface NPMPackageVersion {
     url: string
   }
   dist: {
+    tarball: string
     integrity: string
     "npm-signature": string
     shasum: string
