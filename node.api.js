@@ -18,16 +18,15 @@ export default (opts) => {
   return {
     afterExport: (state) => {
       // Writes extensions.json in site dist root
+      const extensions = state.routes.
+        filter(r => r.data.itemType === 'extension').
+        map(route => route.data.extension).
+        map(gatherExtensionInfo).
+        reduce((prev, curr) => ({ ...prev, ...{ [curr.npm.name]: curr } }), {})
       outputJSON(
         state.config.paths.DIST,
         'extensions.json',
-        {
-          extensions: state.routes.
-            filter(r => r.data.itemType === 'extension').
-            map(route => route.data.extension).
-            map(gatherExtensionInfo).
-            reduce((prev, curr) => ({ ...prev, ...{ [curr.npm.name]: curr } }), {}),
-        })
+        { extensions })
     },
   }
 };
