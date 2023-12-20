@@ -40,10 +40,12 @@
     "@types/react-helmet": "^6.1.9",
     "@types/react-hot-loader": "^4.1.0",
     "axios": "^1.6.2",
+    "esbuild": "^0.19.9",
     "react-hot-loader": "^4.13.1",
     "react-static-plugin-file-watch-reload": "^1.0.4",
     "react-static-plugin-typescript": "^7.6.2",
     "serve": "^14.2.1",
+    "tar": "^6.2.0",
     "typescript": "^5.3.2"
   }
 }
