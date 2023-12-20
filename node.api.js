@@ -37,6 +37,7 @@ export default (opts) => {
         reduce((prev, curr) => ({ ...prev, ...{ [curr.npm.name]: curr } }), {})
 
       for (const ext of Object.values(extensions).filter(ext => ext.tarball !== undefined)) {
+        // IMPORTANT: We don’t want that in JSON
         const extDir = await unpackExtension(ext)
         console.debug("Unpacked extension to temporary directory", ext.npm.name, extDir)
 
@@ -77,6 +78,7 @@ export default (opts) => {
 };
 
 
+/** Unpacks extension & deletes `tarball` from extension data. */
 async function unpackExtension(ext) {
   // This must be local, under process.cwd
   const extDir = fs.mkdtempSync(path.join(
@@ -92,6 +94,9 @@ async function unpackExtension(ext) {
   const tarballPath = path.join(extDir, 'tarball.tgz')
   fs.writeFileSync(tarballPath, ext.tarball)
   await tar.x({ file: tarballPath, cwd: extDir })
+
+  // IMPORTANT
+  delete ext.tarball;
 
   return extDir;
 }
