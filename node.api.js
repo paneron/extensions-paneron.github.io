@@ -20,6 +20,10 @@ function gatherExtensionInfo(route) {
     ...route.data.extension,
     basePath: route.path,
   }
+  // Drop NPM internals
+  for (const key of Object.keys(extInfo.npm).filter(key => key.startsWith('_'))) {
+    delete extInfo.npm[key];
+  }
   return extInfo
 }
 
