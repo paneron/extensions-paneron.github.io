@@ -67,7 +67,7 @@ export default (opts) => {
 async function unpackExtension(ext) {
   // This must be local, under process.cwd
   const extDir = fs.mkdtempSync(path.join(
-    process.cwd(),
+    os.tmpdir(),
     `paneron-extension-${encodeURIComponent(ext.npm.name)}`,
   ))
 
@@ -96,61 +96,49 @@ function getEntryPoint(extDir) {
 
 
 async function buildExt(entryPoint, outfile) {
-  // XXX: This won’t work, because TS sources are not currently packaged
-  // and therefore plugin.ts does not exist.
-  try {
-    const effectiveEntryPoint = path.relative(process.cwd(), entryPoint)
-    console.debug("Build: entry point", effectiveEntryPoint)
-    console.debug("Build: entry point is a file?", fs.statSync(path.join(process.cwd(), effectiveEntryPoint)).isFile())
-    if (effectiveEntryPoint.startsWith('..')) {
-      throw new Error("Invalid effective entry point");
-    }
-    const result = await esbuild({
-      entryPoints: [effectiveEntryPoint],
-      format: 'esm',
-      bundle: true,
-      outfile,
-      platform: 'browser',
-      external: [
-        '@riboseinc/*',
-        '@blueprintjs/*',
-        '@emotion/*',
-        'react-dom',
-        'react',
-        'immutability-helper',
-      ],
-      //packages: 'external',
-      tsconfigRaw: JSON.stringify({
-        "compilerOptions": {
-          "target": "es2020",
-          "module": "node16",
-          "moduleResolution": "node",
+  return await esbuild({
+    entryPoints: [entryPoint],
+    format: 'esm',
+    bundle: true,
+    outfile,
+    platform: 'browser',
+    external: [
+      '@riboseinc/*',
+      '@blueprintjs/*',
+      '@emotion/*',
+      'react-dom',
+      'react',
+      'immutability-helper',
+    ],
+    //packages: 'external',
+    tsconfigRaw: JSON.stringify({
+      "compilerOptions": {
+        "target": "es2020",
+        "module": "esnext",
+        "moduleResolution": "node",
 
-          "strict": true,
-          "noUnusedLocals": true,
-          "verbatimModuleSyntax": true,
-          "noFallthroughCasesInSwitch": true,
-          "noImplicitReturns": true,
+        "strict": true,
+        "noUnusedLocals": true,
+        "verbatimModuleSyntax": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
 
-          "sourceMap": true,
-          "inlineSources": true,
-          "skipLibCheck": true,
+        "sourceMap": true,
+        "inlineSources": true,
+        "skipLibCheck": true,
 
-          "allowSyntheticDefaultImports": true,
-          "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
 
-          "newLine": "lf",
+        "newLine": "lf",
 
-          "declaration": true,
-          "jsx": "react",
-        },
-      }),
-      minify: false,
-      sourcemap: 'inline',
-      target: ['chrome94'], // Matches the one bundled with Paneron’s Electron version
-      logLevel: 'debug',
-    })
-    console.debug("Build: result", result)
-  } finally {
-  }
+        "declaration": true,
+        "jsx": "react",
+      },
+    }),
+    minify: false,
+    sourcemap: 'inline',
+    target: ['chrome94'], // Matches the one bundled with Paneron’s Electron version
+    logLevel: 'debug',
+  })
 }
