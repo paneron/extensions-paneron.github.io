@@ -15,10 +15,17 @@ function outputJSON(distPath, fileName, data) {
     JSON.stringify(data, undefined, 2))
 }
 
-function gatherExtensionInfo(extension) {
-  console.debug("Gathering extension info:", extension.npm.name);
-  return extension;
+function gatherExtensionInfo(route) {
+  const extInfo = {
+    ...route.data.extension,
+    basePath: route.path,
+  }
+  return extInfo
 }
+
+
+const BUILT_EXTENSION_FILENAME = 'build.js'
+
 
 export default (opts) => {
   return {
@@ -26,7 +33,6 @@ export default (opts) => {
       // Writes extensions.json in site dist root
       const extensions = state.routes.
         filter(r => r.data.itemType === 'extension').
-        map(route => route.data.extension).
         map(gatherExtensionInfo).
         reduce((prev, curr) => ({ ...prev, ...{ [curr.npm.name]: curr } }), {})
 
@@ -37,11 +43,18 @@ export default (opts) => {
         const entryPoint = getEntryPoint(extDir)
 
         if (entryPoint) {
-          console.debug("Building unpacked extension...")
+          const outFilePath = path.join(
+            state.config.paths.DIST,
+            extensions[ext.npm.name].basePath,
+            BUILT_EXTENSION_FILENAME)
+          console.debug("Building unpacked extension to file", outFilePath)
           try {
-            const outFile = path.join(state.config.paths.DIST, `${encodeURIComponent(ext.npm.name)}.js`)
-            await buildExt(entryPoint, outFile)
+            await buildExt(entryPoint, outFilePath)
             fs.rmdirSync(extDir, { recursive: true })
+            ext.builtJS = path.posix.join(
+              state.config.siteRoot,
+              extensions[ext.npm.name].basePath,
+              BUILT_EXTENSION_FILENAME)
             console.info("Built extension & cleaned up directory", ext.npm.name)
           } catch (e) {
             console.error("Failed to build extension", ext.npm.name, e)
