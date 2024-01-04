@@ -130,6 +130,8 @@ async function buildExt(entryPoint, outfile) {
       '@emotion/*',
       'react-dom',
       'react',
+      'react-mathjax2',
+      'liquidjs',
       'immutability-helper',
     ],
     //packages: 'external',
