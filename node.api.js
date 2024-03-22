@@ -60,6 +60,16 @@ export default (opts) => {
               state.config.siteRoot,
               extensions[ext.npm.name].basePath,
               BUILT_EXTENSION_FILENAME)
+            const packageJSONPath = path.join(
+              state.config.paths.DIST,
+              extensions[ext.npm.name].basePath,
+              'package.json')
+
+            const { name, version, description, author } = ext.npm
+            fs.writeFileSync(
+              packageJSONPath,
+              JSON.stringify({ name, version, description, author }))
+
             console.info("Built extension & cleaned up directory", ext.npm.name)
           } catch (e) {
             console.error("Failed to build extension", ext.npm.name, e)
