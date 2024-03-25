@@ -28,7 +28,7 @@ function gatherExtensionInfo(route) {
 }
 
 
-const BUILT_EXTENSION_FILENAME = 'build.js'
+const BUILT_EXTENSION_FILENAME = 'extension.js'
 
 
 export default (opts) => {
