@@ -153,7 +153,7 @@ async function buildExt(entryPoint, outfile) {
 
         "strict": true,
         "noUnusedLocals": true,
-        "verbatimModuleSyntax": true,
+        //"verbatimModuleSyntax": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
 
