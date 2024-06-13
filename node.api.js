@@ -97,7 +97,7 @@ async function unpackExtension(ext) {
   // This must be local, under process.cwd
   const extDir = fs.mkdtempSync(path.join(
     os.tmpdir(),
-    `paneron-extension-${encodeURIComponent(ext.npm.name)}`,
+    `paneron-extension-${encodeURIComponent(ext.npm.name)}-${ext.npm.version}`,
   ))
 
   //console.debug("Unpacking extension to path", ext.npm.name, extDir)
