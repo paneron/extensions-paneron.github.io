@@ -1,16 +1,21 @@
 import axios from 'axios';
+import npmSearch from 'libnpmsearch';
 import parseJSON from 'date-fns/parseJSON';
-import type { Extension, NPMPackage, NPMPackageVersion, NPMSearchEntry, PaneronExtensionMeta, PaneronExtensionPackageVersion } from './types';
+import type { Extension, NPMPackageSearchEntry, NPMPackage, NPMPackageVersion, PaneronExtensionMeta, PaneronExtensionPackageVersion } from './types';
 
 
 /** Builds a list of Paneron extension metadata objects from NPM registry. */
 async function discoverExtensions(): Promise<Extension[]> {
   const packages = [
-    ...(await axios.get(`https://registry.npmjs.com/-/v1/search?text=scope:riboseinc%20paneron-extension`)).data.objects,
-    ...(await axios.get(`https://registry.npmjs.com/-/v1/search?text=scope:paneron%20extension`)).data.objects,
+    ...(await npmSearch('paneron')),
   ];
+  console.debug("Found packages", packages);
   const extensions: Extension[] = await Promise.all(packages.filter(isExtension).map(loadExtension));
-  return extensions.filter(ext => ext !== null);
+  const validExtensions = extensions.filter(ext => ext !== null);
+  if (validExtensions.length < 1) {
+    throw new Error("No extensions found, possible issue during build");
+  }
+  return validExtensions;
 }
 
 
@@ -26,8 +31,8 @@ function validateNPMExtensionName(name: string): boolean {
 }
 
 
-function isExtension(entry: NPMSearchEntry): boolean {
-  return validateNPMExtensionName(entry.package.name);
+function isExtension(entry: NPMPackageSearchEntry): boolean {
+  return validateNPMExtensionName(entry.name);
 }
 
 
@@ -69,11 +74,11 @@ function parseExtensionPkg(pkg: NPMPackage): NPMPackage<PaneronExtensionPackageV
 }
 
 
-async function loadExtension(npm: NPMSearchEntry): Promise<Extension | null> {
-  const packageResponse = await axios.get(`https://registry.npmjs.com/${npm.package.name}`)
+async function loadExtension(npm: NPMPackageSearchEntry): Promise<Extension | null> {
+  const packageResponse = await axios.get(`https://registry.npmjs.com/${npm.name}`)
 
-  if (packageResponse.data?.name !== npm.package.name) {
-    console.error("NPM package name does not match search entry name", npm.package.name)
+  if (packageResponse.data?.name !== npm.name) {
+    console.error("NPM package name does not match search entry name", npm.name)
     return null
   }
 

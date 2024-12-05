@@ -17,18 +17,20 @@ export interface PaneronExtensionMeta {
 }
 
 
-/** Type of an object returned from NPM registry v1 search JSON */
-export interface NPMSearchEntry {
-  package: {
+export interface NPMPackageSearchEntry {
+  name: string
+  version: string
+  description: string
+  author: {
     name: string
-    version: string
-    description: string
-    author: {
-      name: string
-      username: string
-    }
+    username: string
   }
 }
+
+// /** Type of an object returned from NPM registry v1 search JSON */
+// export interface NPMSearchEntry {
+//   package: NPMPackage
+// }
 
 
 export interface NPMPackageVersion {
